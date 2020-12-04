@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="2dp" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@drawable/top_radus_shape"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="70dp"
+        >
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="32dp"
+            android:layout_height="4dp"
+            android:background="@drawable/ic_item_shape"
+            android:backgroundTint="#BFC9CA"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:id="@+id/place_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:maxLines="2"
+            android:background="@drawable/botom_white_border"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/address"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/view1" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/values"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/place_name">
+
+            <TextView
+                android:id="@+id/rider_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Rider Name :"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/rider_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Rider Contact :"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                app:layout_constraintTop_toBottomOf="@+id/rider_name"
+                />
+
+            <TextView
+                android:id="@+id/shippingvia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Shipping Vai :"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                app:layout_constraintTop_toBottomOf="@+id/rider_contact"
+                />
+
+            <TextView
+                android:id="@+id/l_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Last Update :"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                app:layout_constraintTop_toBottomOf="@+id/shippingvia"
+                />
+
+            <TextView
+                android:id="@+id/e_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Estimate Delivery Time :"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                app:layout_constraintTop_toBottomOf="@+id/l_update"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/values"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@+id/title"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/place_name">
+
+            <TextView
+                android:id="@+id/r_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Johan Elia"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/r_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="034587421"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                app:layout_constraintTop_toBottomOf="@+id/r_name"
+                />
+
+            <TextView
+                android:id="@+id/shippvia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Vehicle"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                app:layout_constraintTop_toBottomOf="@+id/r_contact"
+                />
+
+            <TextView
+                android:id="@+id/last_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Just Now"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                app:layout_constraintTop_toBottomOf="@+id/shippvia"
+                />
+
+            <TextView
+                android:id="@+id/est_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="1 hour 34 mints"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                app:layout_constraintTop_toBottomOf="@+id/last_update"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

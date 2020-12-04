@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/packageimage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@color/black"
+        app:cardCornerRadius="75dp"
+        app:cardElevation="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@raw/add_image"
+            app:backgroundTint="#BFDDDDDD" />
+    </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/pickName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Package Name"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/packageimage" />
+
+    <EditText
+        android:id="@+id/pickDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Package Description"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickName" />
+
+    <EditText
+        android:id="@+id/pickLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Pick-Up Location"
+        android:padding="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/dropLocation"
+        app:layout_constraintTop_toBottomOf="@+id/pickDesc" />
+
+    <EditText
+        android:id="@+id/dropLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="4dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Drop Location"
+        android:padding="12dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/pickLocation"
+        app:layout_constraintTop_toBottomOf="@+id/pickDesc" />
+
+    <EditText
+        android:id="@+id/packets_qty"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Quantity"
+        android:padding="12dp"
+        app:layout_constraintLeft_toRightOf="@+id/pkg_type"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dropLocation" />
+
+    <Spinner
+        android:id="@+id/pkg_type"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/spinner_background"
+        android:entries="@array/item_type"
+        app:layout_constraintBottom_toBottomOf="@+id/packets_qty"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/packets_qty"
+        app:layout_constraintTop_toTopOf="@+id/packets_qty" />
+
+    <EditText
+        android:id="@+id/packets_weight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Weight"
+        android:padding="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/packets_dem"
+        app:layout_constraintTop_toBottomOf="@+id/packets_qty" />
+
+    <EditText
+        android:id="@+id/packets_dem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Dimension"
+        android:padding="12dp"
+        app:layout_constraintLeft_toRightOf="@+id/packets_weight"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/packets_qty" />
+
+    <TextView
+        android:id="@+id/pickDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/edittext_background_normal"
+        android:text="Pic Date"
+        android:drawableEnd="@drawable/ic_calender"
+        android:drawablePadding="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/packets_dem" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Package"
+        app:layout_constraintTop_toBottomOf="@+id/pickDate"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_courier"
+            android:icon="@raw/logo_material"
+            android:title="Courier Service" />
+        <item
+            android:id="@+id/nav_freight"
+            android:icon="@raw/ic_ltl"
+            android:title="LTL Freight" />
+
+        <item
+            android:id="@+id/nav_print"
+            android:icon="@drawable/ic_print"
+            android:title="Print On Demand" />
+
+        <item
+            android:id="@+id/nav_tracking"
+            android:icon="@drawable/pin_location"
+            android:title="Order Tracking " />
+        <item
+            android:id="@+id/nav_Logout"
+            android:icon="@raw/logout"
+            android:title="Logout" />
+
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:icon="@drawable/ic_info"
+                android:title="About Us" />
+            <item
+                android:icon="@drawable/ic_faq"
+                android:title="FAQ" />
+
+            <item
+                android:icon="@drawable/ic_lock"
+                android:title="Privacy Policy" />
+
+        </menu>
+
+
+    </item>
+</menu>

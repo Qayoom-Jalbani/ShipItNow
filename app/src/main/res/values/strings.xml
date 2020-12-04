@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">ShipItNow</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+
+    <string name="detail"><u>View Detail</u></string>
+    <string name="forgettext"><u>Forget Password</u></string>
+    <string name="sign_up">Don`t have account   <u>SIGN UP</u></string>
+    <string name="date"><u>Pick-Up Date</u> : <b>29-Des-2020</b></string>
+    <string name="dec"> As Per Discussion APK will be release on wednesday with New Dashboard appended in APP</string>
+
+    <string name="address"><i>Chicago Near West Side As Per Discussion APK will be release on wednesday with New Dashboard appended in APP</i></string>
+    <string name="shipingvia"><u><i>Shipping Via</i></u> : <b>Vehicle</b></string>
+    <string name="l_update"><u><i>Last Update</i></u> : <b>Just Now</b></string>
+    <string name="d_time"><u><i>Estimate Delivery Time</i></u> : <b>1 hour 34 mints</b></string>
+    <string name="r_name"><u><i>Rider Name</i></u> : <b>Johan Elia</b></string>
+    <string name="r_contact"><u><i>Rider Contact</i></u> : <b>01245875</b></string>
+
+
+    <array name="item_type">
+        <item>Select Item Type</item>
+        <item>Item Type2</item>
+        <item>Item Type3</item>
+        <item>Item Type4</item>
+        <item>Item Type5</item>
+        <item>Item Type6</item>
+        <item>Item Type7</item>
+        <item>Item Type8</item>
+    </array>
+
+    <array name="print_type">
+        <item>Select Print Type</item>
+        <item>Colored</item>
+        <item>Black&amp;White</item>
+    </array>
+
+    <array name="print_size">
+        <item>Select Print Size</item>
+        <item>A1 \t\t 594 x 841 mm \t\t 23.4 x 33.1 in</item>
+        <item>A2 \t\t 420 x 594 mm \t\t 16.5 x 23.4 in</item>
+        <item>A3 \t\t 297 x 420 mm \t\t 11.7 x 16.5 in</item>
+        <item>A4 \t\t 210 x 297 mm \t\t 8.3 x 11.7 in</item>
+        <item>A5 \t\t 148 x 210 mm \t\t 5.8 x 8.3 in</item>
+        <item>A6 \t\t 105 x 148 mm \t\t 4.1 x 5.8 in</item>
+        <item>A7 \t\t 74 x 105 mm \t\t 2.9 x 4.1 in</item>
+        <item>A8 \t\t 52 x 74 mm \t\t 2.0 x 2.9 in</item>
+        <item>A9 \t\t 37 x 52 mm \t\t 1.5 x 2.0 in</item>
+        <item>A1 \t\t 26 x 37 mm \t\t 1.0 x 1.5 in</item>
+    </array>
+</resources>

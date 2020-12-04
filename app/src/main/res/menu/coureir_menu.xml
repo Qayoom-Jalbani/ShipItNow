@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_mypackge"
+        android:orderInCategory="100"
+        android:title="My Package"
+        android:icon="@raw/my_package"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/nav_add"
+        android:orderInCategory="100"
+        android:title="Add Package"
+        android:icon="@raw/ic_box"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/nav_tracking"
+        android:orderInCategory="100"
+        android:title="Tracking"
+        android:icon="@raw/ic_pin_location"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/nav_pickup"
+        android:orderInCategory="100"
+        android:title="Pick-Up Schecdule"
+        android:icon="@raw/pick_upschedule"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/nav_delivery"
+        android:orderInCategory="100"
+        android:icon="@raw/package_delivery"
+        android:title="Delivery"
+        app:showAsAction="never" />
+</menu>

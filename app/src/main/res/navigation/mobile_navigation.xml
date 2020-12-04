@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_courier">
+
+    <fragment
+        android:id="@+id/nav_freight"
+        android:name="business.shipitnow.com.ui.ltl_freight.LTL_FreightFragment"
+        android:label="LTL Freight"
+        tools:layout="@layout/fragment_freight" />
+
+    <fragment
+        android:id="@+id/nav_courier"
+        android:name="business.shipitnow.com.ui.courier.Courier_Fragment"
+        android:label="Courier Service"
+        tools:layout="@layout/fragment_courier" />
+
+    <fragment
+        android:id="@+id/nav_print"
+        android:name="business.shipitnow.com.ui.print.PrintFragment"
+        android:label="Print On Demand"
+        tools:layout="@layout/fragment_print" />
+
+    <fragment
+        android:id="@+id/nav_tracking"
+        android:name="business.shipitnow.com.ui.tracking.Tracking_Fragment"
+        android:label="Order Tracking"
+        tools:layout="@layout/fragment_tab_tracking" />
+</navigation>
