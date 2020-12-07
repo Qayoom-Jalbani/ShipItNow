@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp"
-    >
+    android:padding="12dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/packageimage"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:background="@color/black"
         app:cardCornerRadius="75dp"
         app:cardElevation="0dp"
@@ -32,7 +31,8 @@
         android:layout_marginTop="18dp"
         android:background="@drawable/edittext_background"
         android:hint="Package Name"
-        android:padding="12dp"
+        android:textSize="13sp"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/packageimage" />
@@ -44,36 +44,63 @@
         android:layout_marginTop="18dp"
         android:background="@drawable/edittext_background"
         android:hint="Package Description"
-        android:padding="12dp"
+        android:textSize="13sp"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pickName" />
 
-    <EditText
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/pickLocation"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
-        android:layout_marginRight="4dp"
-        android:background="@drawable/edittext_background"
-        android:hint="Pick-Up Location"
-        android:padding="12dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/dropLocation"
-        app:layout_constraintTop_toBottomOf="@+id/pickDesc" />
-
-    <EditText
-        android:id="@+id/dropLocation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginLeft="4dp"
-        android:background="@drawable/edittext_background"
-        android:hint="Drop Location"
-        android:padding="12dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/pickLocation"
-        app:layout_constraintTop_toBottomOf="@+id/pickDesc" />
+        app:layout_constraintTop_toBottomOf="@+id/pickDesc">
+
+        <TextView
+            android:id="@+id/mapAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            android:drawableEnd="@drawable/pin_location"
+            android:text="Get Address Form Map"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/pickupLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/edittext_background"
+            android:hint="Pick-Up Location"
+            android:textSize="13sp"
+            android:padding="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/dropLocation"
+            app:layout_constraintTop_toBottomOf="@+id/mapAddress" />
+
+        <EditText
+            android:id="@+id/dropLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/edittext_background"
+            android:hint="Drop Location"
+            android:textSize="13sp"
+            android:padding="10dp"
+            app:layout_constraintLeft_toRightOf="@+id/pickupLocation"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pickupLocation" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <EditText
         android:id="@+id/packets_qty"
@@ -82,10 +109,12 @@
         android:layout_marginTop="18dp"
         android:background="@drawable/edittext_background"
         android:hint="Quantity"
-        android:padding="12dp"
+        android:textSize="13sp"
+        android:inputType="numberDecimal"
+        android:padding="10dp"
         app:layout_constraintLeft_toRightOf="@+id/pkg_type"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dropLocation" />
+        app:layout_constraintTop_toBottomOf="@+id/pickLocation" />
 
     <Spinner
         android:id="@+id/pkg_type"
@@ -107,7 +136,9 @@
         android:layout_marginRight="4dp"
         android:background="@drawable/edittext_background"
         android:hint="Weight"
-        android:padding="12dp"
+        android:inputType="numberDecimal"
+        android:textSize="13sp"
+        android:padding="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/packets_dem"
         app:layout_constraintTop_toBottomOf="@+id/packets_qty" />
@@ -120,7 +151,8 @@
         android:layout_marginTop="18dp"
         android:background="@drawable/edittext_background"
         android:hint="Dimension"
-        android:padding="12dp"
+        android:textSize="13sp"
+        android:padding="10dp"
         app:layout_constraintLeft_toRightOf="@+id/packets_weight"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/packets_qty" />
@@ -129,12 +161,12 @@
         android:id="@+id/pickDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="12dp"
         android:layout_marginTop="18dp"
         android:background="@drawable/edittext_background_normal"
-        android:text="Pic Date"
         android:drawableEnd="@drawable/ic_calender"
-        android:drawablePadding="12sp"
+        android:drawablePadding="10sp"
+        android:padding="8dp"
+        android:text="Pic Date"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/packets_dem" />
@@ -143,10 +175,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Package"
-        app:layout_constraintTop_toBottomOf="@+id/pickDate"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickDate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

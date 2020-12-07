@@ -43,6 +43,11 @@
         <item>Black&amp;White</item>
     </array>
 
+    <array name="Address_type">
+        <item>Address</item>
+        <item>Get Address Form Map</item>
+    </array>
+
     <array name="print_size">
         <item>Select Print Size</item>
         <item>A1 \t\t 594 x 841 mm \t\t 23.4 x 33.1 in</item>
@@ -56,4 +61,5 @@
         <item>A9 \t\t 37 x 52 mm \t\t 1.5 x 2.0 in</item>
         <item>A1 \t\t 26 x 37 mm \t\t 1.0 x 1.5 in</item>
     </array>
+
 </resources>

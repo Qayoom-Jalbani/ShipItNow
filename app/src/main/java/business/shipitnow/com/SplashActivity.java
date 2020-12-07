@@ -7,6 +7,8 @@ import android.os.Handler;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import business.shipitnow.com.login.LoginActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -16,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent =new Intent(SplashActivity.this,LoginActivity.class);
+                Intent intent =new Intent(SplashActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
