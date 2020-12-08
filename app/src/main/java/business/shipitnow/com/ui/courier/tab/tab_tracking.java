@@ -30,6 +30,8 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import business.shipitnow.com.R;
 import business.shipitnow.com.adapters.PicUpAdapters;
 
+import static business.shipitnow.com.module.ComanMethod.getMarker;
+
 public class tab_tracking extends Fragment {
 
     private GoogleMap mMap;
@@ -69,25 +71,25 @@ public class tab_tracking extends Fragment {
                         new MarkerOptions()
                                 .position(midlePoint)
                                 .title("Here Your Package")
-                                .icon(BitmapDescriptorFactory.fromBitmap(getMarker(R.drawable.ic_color_pin_location,30,45)))
+                                .icon(BitmapDescriptorFactory.fromBitmap(getMarker(requireActivity(), R.drawable.ic_color_pin_location, 30, 45)))
                 );
 
                 mMap.addMarker(
                         new MarkerOptions()
                                 .position(StartPoint)
                                 .title("Here Your Package")
-                                .icon(BitmapDescriptorFactory.fromBitmap(getMarker(R.drawable.ic_pin_location,25,35)))
+                                .icon(BitmapDescriptorFactory.fromBitmap(getMarker(requireActivity(), R.drawable.ic_pin_location, 25, 35)))
                 );
 
                 mMap.addMarker(
                         new MarkerOptions()
                                 .position(EndPoint)
                                 .title("Here Your Package")
-                                .icon(BitmapDescriptorFactory.fromBitmap(getMarker(R.drawable.marker,25,35)))
+                                .icon(BitmapDescriptorFactory.fromBitmap(getMarker(requireActivity(), R.drawable.marker, 25, 35)))
                 );
 
                 Polyline line = mMap.addPolyline(new PolylineOptions()
-                        .add(StartPoint,path2 ,midlePoint,path1,EndPoint)
+                        .add(StartPoint, path2, midlePoint, path1, EndPoint)
                         .width(4)
                         .zIndex(12f)
                         .color(Color.BLACK));
@@ -100,12 +102,4 @@ public class tab_tracking extends Fragment {
         return root;
     }
 
-    private Bitmap getMarker(int id,int w,int h){
-        int height = 45;
-        int width = 30;
-        BitmapDrawable bitmapdraw = (BitmapDrawable)requireActivity().getResources().getDrawable(id);
-        Bitmap b = bitmapdraw.getBitmap();
-
-        return Bitmap.createScaledBitmap(b, w, h, false);
-    }
 }

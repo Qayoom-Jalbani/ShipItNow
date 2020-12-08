@@ -82,6 +82,7 @@
             android:hint="Pick-Up Location"
             android:textSize="13sp"
             android:padding="10dp"
+            android:maxLines="3"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/dropLocation"
             app:layout_constraintTop_toBottomOf="@+id/mapAddress" />
@@ -95,6 +96,7 @@
             android:hint="Drop Location"
             android:textSize="13sp"
             android:padding="10dp"
+            android:maxLines="3"
             app:layout_constraintLeft_toRightOf="@+id/pickupLocation"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@+id/pickupLocation" />
