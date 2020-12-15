@@ -15,12 +15,12 @@
         android:icon="@raw/ic_box"
         app:showAsAction="never" />
 
-    <item
+    <!--<item
         android:id="@+id/nav_tracking"
         android:orderInCategory="100"
         android:title="Tracking"
         android:icon="@raw/ic_pin_location"
-        app:showAsAction="never" />
+        app:showAsAction="never" />-->
 
     <item
         android:id="@+id/nav_pickup"

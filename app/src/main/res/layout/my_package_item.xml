@@ -4,11 +4,11 @@
     android:id="@+id/prentview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:animateLayoutChanges="true"
     android:layout_marginLeft="4dp"
     android:layout_marginTop="4dp"
     android:layout_marginRight="4dp"
     android:layout_marginBottom="4dp"
+    android:animateLayoutChanges="true"
     android:background="@drawable/ic_item_shape"
     android:elevation="4dp">
 
@@ -67,16 +67,17 @@
          app:layout_constraintVertical_bias="0.35000002" />-->
 
     <TextView
-        android:id="@+id/date"
+        android:id="@+id/tracId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:fontFamily="sans-serif-light"
         android:maxLines="2"
-        android:text="@string/date"
+        android:text="Live Trackin Id 123"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textColor="@color/purple_700"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/detail"
         app:layout_constraintLeft_toRightOf="@+id/view1"
         app:layout_constraintRight_toLeftOf="@+id/detail"
@@ -87,111 +88,73 @@
         android:id="@+id/detail"
         android:layout_width="30dp"
         android:layout_height="70dp"
-        android:padding="18dp"
         android:layout_marginRight="2dp"
+        android:padding="18dp"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_arrow_down"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/detailview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="14dp"
         android:animateLayoutChanges="true"
-        android:visibility="visible"
+        android:padding="14dp"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@+id/icon">
 
         <TextView
             android:id="@+id/pocket_dec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/dec"
+            android:text="Your Package In Shipping Process You can Track your order by using tracking ID"
             android:textAlignment="center"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/pick_from"
+            android:id="@+id/status"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Pic-Up From"
+            android:text="Status"
             android:textAlignment="center"
             android:textColor="@color/black"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/to_deliver"
-            app:layout_constraintTop_toBottomOf="@+id/pocket_dec"
-            />
-
-
-        <View
-            android:layout_width="0.5dp"
-            android:layout_height="0dp"
-            android:background="#CDCCCC"
-            app:layout_constraintRight_toLeftOf="@+id/to_deliver"
-            app:layout_constraintLeft_toRightOf="@+id/pick_from"
-            app:layout_constraintTop_toTopOf="@+id/pick_from"
-            app:layout_constraintBottom_toBottomOf="@+id/from"/>
-        <TextView
-            android:id="@+id/to_deliver"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="To Deliver"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            app:layout_constraintLeft_toRightOf="@+id/pick_from"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/pick_from"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/pocket_dec" />
+
+
+
 
         <TextView
-            android:id="@+id/from"
+            android:id="@+id/statusvalue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:text="app not working on some mobiles so we should upgrade firstly then Design."
+            android:text="Your Package In a Shipping Way"
             android:textAlignment="center"
-            android:textSize="12sp"
             android:textColor="@color/black"
+            android:textSize="12sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/to_deliver"
-            app:layout_constraintTop_toBottomOf="@+id/pick_from"
-            />
-
-        <TextView
-            android:id="@+id/to"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:text="app not working on some mobiles so we should upgrade firstly then Design."
-            android:textAlignment="center"
-            android:textSize="12sp"
-            android:textColor="@color/black"
-            app:layout_constraintLeft_toRightOf="@+id/pick_from"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/from"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/status" />
 
 
         <TextView
-            android:id="@+id/pick_up_package"
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Track Order"
-            android:drawableRight="@drawable/pin_location"
-            android:drawablePadding="8dp"
-            android:textSize="18dp"
-            android:textColor="@color/purple_700"
-            app:layout_constraintTop_toBottomOf="@+id/to"
+            android:text="@string/dropdate"
+            android:textColor="@color/black"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statusvalue" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

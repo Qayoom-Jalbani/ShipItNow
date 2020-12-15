@@ -6,180 +6,325 @@
     android:layout_height="match_parent"
     android:padding="12dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/packageimage"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:background="@color/black"
-        app:cardCornerRadius="75dp"
-        app:cardElevation="0dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <ImageView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@raw/add_image"
-            app:backgroundTint="#BFDDDDDD" />
-    </androidx.cardview.widget.CardView>
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/pickName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/edittext_background"
-        android:hint="Package Name"
-        android:textSize="13sp"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/packageimage" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/packageimage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@color/black"
+                app:cardCornerRadius="75dp"
+                app:cardElevation="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/pickDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/edittext_background"
-        android:hint="Package Description"
-        android:textSize="13sp"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pickName" />
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:background="@raw/add_image"
+                    app:backgroundTint="#BFDDDDDD" />
+            </androidx.cardview.widget.CardView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/pickLocation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pickDesc">
+            <EditText
+                android:id="@+id/pickName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Package Name"
+                android:padding="10dp"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/packageimage" />
 
-        <TextView
-            android:id="@+id/mapAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittext_background"
-            android:padding="10dp"
-            android:drawableEnd="@drawable/pin_location"
-            android:text="Get Address Form Map"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/pickDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Package Description"
+                android:padding="10dp"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pickName" />
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pickLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pickDesc">
 
-        <EditText
-            android:id="@+id/pickupLocation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="18dp"
-            android:background="@drawable/edittext_background"
-            android:hint="Pick-Up Location"
-            android:textSize="13sp"
-            android:padding="10dp"
-            android:maxLines="3"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/dropLocation"
-            app:layout_constraintTop_toBottomOf="@+id/mapAddress" />
-
-        <EditText
-            android:id="@+id/dropLocation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:background="@drawable/edittext_background"
-            android:hint="Drop Location"
-            android:textSize="13sp"
-            android:padding="10dp"
-            android:maxLines="3"
-            app:layout_constraintLeft_toRightOf="@+id/pickupLocation"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/pickupLocation" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+               <!-- <TextView
+                    android:id="@+id/mapAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_background"
+                    android:drawableEnd="@drawable/pin_location"
+                    android:padding="10dp"
+                    android:text="Get Address Form Map"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />-->
 
 
-    <EditText
-        android:id="@+id/packets_qty"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/edittext_background"
-        android:hint="Quantity"
-        android:textSize="13sp"
-        android:inputType="numberDecimal"
-        android:padding="10dp"
-        app:layout_constraintLeft_toRightOf="@+id/pkg_type"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pickLocation" />
+                <EditText
+                    android:id="@+id/pickupLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:paddingEnd="14dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:hint="Pick-Up Location"
+                    android:maxLines="3"
+                    android:tag="''/''"
 
-    <Spinner
-        android:id="@+id/pkg_type"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/spinner_background"
-        android:entries="@array/item_type"
-        app:layout_constraintBottom_toBottomOf="@+id/packets_qty"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/packets_qty"
-        app:layout_constraintTop_toTopOf="@+id/packets_qty" />
+                    android:textSize="13sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/dropLocation"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/packets_weight"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginRight="4dp"
-        android:background="@drawable/edittext_background"
-        android:hint="Weight"
-        android:inputType="numberDecimal"
-        android:textSize="13sp"
-        android:padding="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/packets_dem"
-        app:layout_constraintTop_toBottomOf="@+id/packets_qty" />
+                <ImageView
+                    android:id="@+id/pick"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/pin_location"
+                    android:layout_marginEnd="4dp"
+                    android:tag="Pin To Pick-Up Location"
+                    app:layout_constraintBottom_toBottomOf="@+id/pickupLocation"
+                    app:layout_constraintTop_toTopOf="@+id/pickupLocation"
+                    app:layout_constraintRight_toRightOf="@+id/pickupLocation"/>
 
-    <EditText
-        android:id="@+id/packets_dem"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/edittext_background"
-        android:hint="Dimension"
-        android:textSize="13sp"
-        android:padding="10dp"
-        app:layout_constraintLeft_toRightOf="@+id/packets_weight"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/packets_qty" />
+                <EditText
+                    android:id="@+id/dropLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:paddingEnd="14dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:hint="Drop Location"
+                    android:tag="''/''"
+                    android:maxLines="3"
+                    android:textSize="13sp"
+                    app:layout_constraintLeft_toRightOf="@+id/pickupLocation"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/pickupLocation" />
 
-    <TextView
-        android:id="@+id/pickDate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/edittext_background_normal"
-        android:drawableEnd="@drawable/ic_calender"
-        android:drawablePadding="10sp"
-        android:padding="8dp"
-        android:text="Pic Date"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/packets_dem" />
+                <ImageView
+                    android:id="@+id/drop"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/pin_location"
+                    android:layout_marginEnd="4dp"
+                    android:tag="Pin To Drop Location"
+                    app:layout_constraintBottom_toBottomOf="@+id/dropLocation"
+                    app:layout_constraintTop_toTopOf="@+id/dropLocation"
+                    app:layout_constraintRight_toRightOf="@+id/dropLocation"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Package"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pickDate" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <EditText
+                android:id="@+id/packets_qty"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Quantity"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:textSize="13sp"
+                app:layout_constraintLeft_toRightOf="@+id/pkg_type"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pickLocation" />
+
+            <Spinner
+                android:id="@+id/pkg_type"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/spinner_background"
+                android:entries="@array/item_type"
+                app:layout_constraintBottom_toBottomOf="@+id/packets_qty"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/packets_qty"
+                app:layout_constraintTop_toTopOf="@+id/packets_qty" />
+
+            <EditText
+                android:id="@+id/packets_weight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Weight"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:textSize="13sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/packets_dem"
+                app:layout_constraintTop_toBottomOf="@+id/packets_qty" />
+
+            <EditText
+                android:id="@+id/packets_dem"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/edittext_background"
+                android:hint="Dimension"
+                android:padding="10dp"
+                android:textSize="13sp"
+                app:layout_constraintLeft_toRightOf="@+id/packets_weight"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/packets_qty" />
+
+            <TextView
+                android:id="@+id/pickDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/edittext_background_normal"
+                android:drawableEnd="@drawable/ic_calender"
+                android:drawablePadding="10sp"
+                android:padding="8dp"
+                android:text="Pic Date"
+                android:textColor="@color/black"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/packets_dem"
+
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/edittext_background_normal"
+                app:layout_constraintRight_toLeftOf="@+id/paymet"
+                app:layout_constraintTop_toBottomOf="@+id/pickDate"
+                app:layout_constraintLeft_toLeftOf="parent"
+                >
+                <TextView
+                    android:id="@+id/courierlbl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp"
+                    android:text="Courier Service "
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <CheckBox
+                    android:id="@+id/courier"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Throw Courier"
+                    android:checked="true"
+                    android:tag="serviceType"
+                    android:textSize="12sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/courierlbl" />
+
+                <CheckBox
+                    android:id="@+id/ltl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Throw LtL"
+                    android:textSize="12sp"
+                    android:tag="serviceType"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/courier" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/paymet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_background_normal"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pickDate"
+                app:layout_constraintLeft_toRightOf="@+id/type"
+                >
+                <TextView
+                    android:id="@+id/paylable"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp"
+                    android:text="Courier Service Payment"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <CheckBox
+                    android:id="@+id/payself"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Self Payment"
+                    android:checked="true"
+                    android:tag="PayType"
+                    android:textSize="12sp"
+                    app:layout_constraintLeft_toLeftOf="@+id/paylable"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/paylable" />
+
+                <CheckBox
+                    android:id="@+id/cashondelivery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cash on Delivery"
+                    android:textSize="12sp"
+                    android:tag="PayType"
+                    app:layout_constraintLeft_toLeftOf="@+id/paylable"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/payself" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/addPackage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="8dp"
+                android:text="Add Package"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/paymet" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

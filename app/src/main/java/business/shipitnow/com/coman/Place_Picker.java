@@ -75,7 +75,7 @@ public class Place_Picker {
                         String knownName = addresses.get(0).getFeatureName();
 
                         Address.setText(address + " " + city + " " + state + " " + country);
-                        LatLog.setText("LatLng: " + latLng.toString());
+                        LatLog.setText(latLng.toString());
 
                     } catch (IOException e) {
                         e.printStackTrace();

@@ -44,6 +44,7 @@ public class Repository {
             @Override
             public void onResponse(Call<login> call, Response<login> response) {
                 LoginState.setValue("Success");
+                Log.e("QWE", "Call : " + call.request().url().toString());
                 Loading.setValue(false);
                 Log.e("QWE","Response: "+response.body().toString());
             }

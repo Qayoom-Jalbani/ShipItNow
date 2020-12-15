@@ -16,6 +16,8 @@
     <string name="forgettext"><u>Forget Password</u></string>
     <string name="sign_up">Don`t have account   <u>SIGN UP</u></string>
     <string name="date"><u>Pick-Up Date</u> : <b>29-Des-2020</b></string>
+    <string name="dropdate"><u>Drop-Up Date</u> : <b>29-Des-2020</b></string>
+    <string name="filemust"><b>File Type Must be</b> <br/> pdf, doc, docx, txt, jpg, bmp, png, ai, psd, tiff, indd, pub, ppt, cdr, eps, xls, csv, zip</string>
     <string name="dec"> As Per Discussion APK will be release on wednesday with New Dashboard appended in APP</string>
 
     <string name="address"><i>Chicago Near West Side As Per Discussion APK will be release on wednesday with New Dashboard appended in APP</i></string>
@@ -24,18 +26,19 @@
     <string name="d_time"><u><i>Estimate Delivery Time</i></u> : <b>1 hour 34 mints</b></string>
     <string name="r_name"><u><i>Rider Name</i></u> : <b>Johan Elia</b></string>
     <string name="r_contact"><u><i>Rider Contact</i></u> : <b>01245875</b></string>
+    <string name="cost"><u><i>Print Cost : </i></u><b>126.21</b></string>
 
 
-    <array name="item_type">
+    <string-array name="item_type">
         <item>Select Item Type</item>
-        <item>Item Type2</item>
-        <item>Item Type3</item>
-        <item>Item Type4</item>
-        <item>Item Type5</item>
-        <item>Item Type6</item>
-        <item>Item Type7</item>
-        <item>Item Type8</item>
-    </array>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
 
     <array name="print_type">
         <item>Select Print Type</item>
