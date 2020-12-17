@@ -1,12 +1,14 @@
 package business.shipitnow.com.ui.courier.tab.api_services.mypackage;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -28,9 +30,7 @@ public class tab_my_package extends Fragment {
     private ViewModels viewModels;
 
     private ConstraintLayout GetStart, MyPackage;
-    private CheckBox All,InProgress,Delivered;
-    public static List<AddPakage> Glist;
-
+    private CheckBox All, InProgress, Delivered;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -38,16 +38,18 @@ public class tab_my_package extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_tab_mypackage, container, false);
         viewModels = new ViewModelProvider(this).get(ViewModels.class);
-
+        ((AppCompatActivity) requireActivity()).getSupportActionBar().setTitle("My Packages");
 
         viewModels.getLoading().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-            if (aBoolean){
-                Loading.ShowLoading(requireActivity());
-            }else {
-                Loading.CloseLoading();
-            }
+                if (aBoolean && Adapter.list.size() <= 0) {
+                    Loading.ShowLoading(requireActivity());
+                } else {
+                    Loading.CloseLoading();
+                    Loading.CloseLoading();
+                }
+                Log.e("QWE","loading "+aBoolean);
             }
         });
         viewModels.getPackage().observe(getViewLifecycleOwner(), new Observer<List<AddPakage>>() {
@@ -57,7 +59,6 @@ public class tab_my_package extends Fragment {
                     Adapter.setList(addPakages);
                     GetStart.setVisibility(View.GONE);
                     MyPackage.setVisibility(View.VISIBLE);
-                    Glist = addPakages;
                 } else {
                     GetStart.setVisibility(View.VISIBLE);
                     MyPackage.setVisibility(View.GONE);
@@ -82,9 +83,11 @@ public class tab_my_package extends Fragment {
         recyclerView = root.findViewById(R.id.myPackage);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext());
         recyclerView.setLayoutManager(layoutManager);
-        Adapter = new MyPackageAdapters(requireContext());
+        Adapter = MyPackageAdapters.getInstance(requireContext());
         recyclerView.setAdapter(Adapter);
-        viewModels.getMyPackage();
+
+        if (Adapter.list.size() <= 0)
+            viewModels.getMyPackage();
 
         return root;
     }
@@ -103,15 +106,15 @@ public class tab_my_package extends Fragment {
         @Override
         public void onClick(View v) {
             String tag = v.getTag().toString();
-            if (tag.equals("all")){
+            if (tag.equals("all")) {
                 InProgress.setChecked(false);
                 Delivered.setChecked(false);
                 Adapter.getFilter().filter("all");
-            }else if (tag.equals("inProcess")){
+            } else if (tag.equals("inProcess")) {
                 All.setChecked(false);
                 Delivered.setChecked(false);
                 Adapter.getFilter().filter("inProcess");
-            }else if (tag.equals("deliverd")){
+            } else if (tag.equals("deliverd")) {
                 All.setChecked(false);
                 InProgress.setChecked(false);
                 Adapter.getFilter().filter("deliverd");

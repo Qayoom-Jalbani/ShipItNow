@@ -18,7 +18,7 @@
         tools:layout="@layout/fragment_tab_add" />
 
     <fragment
-        android:id="@+id/nav_tracking"
+        android:id="@+id/tab_nav_tracking"
         android:name="business.shipitnow.com.ui.courier.tab.api_services.tracking.tab_tracking"
         android:label="My Package"
         tools:layout="@layout/fragment_tab_tracking" />
@@ -30,7 +30,7 @@
         tools:layout="@layout/frament_tab_pickup">
         <action
             android:id="@+id/pick_to_tracking"
-            app:destination="@+id/nav_tracking" />
+            app:destination="@+id/tab_nav_tracking" />
     </fragment>
 
 

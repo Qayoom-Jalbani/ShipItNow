@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -35,6 +36,8 @@ public class Loading {
     public static void CloseLoading() {
         if (alertDialog != null) {
             alertDialog.dismiss();
+        }else {
+            Log.e("QWE","alertDialog is null");
         }
     }
 

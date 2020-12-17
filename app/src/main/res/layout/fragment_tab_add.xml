@@ -60,6 +60,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pickName" />
 
+            <EditText
+                android:id="@+id/contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/edittext_background"
+                android:hint="contact number"
+                android:padding="10dp"
+                android:textSize="13sp"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pickDesc" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/pickLocation"
                 android:layout_width="match_parent"
@@ -67,7 +81,7 @@
                 android:layout_marginTop="18dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pickDesc">
+                app:layout_constraintTop_toBottomOf="@+id/contact">
 
                <!-- <TextView
                     android:id="@+id/mapAddress"
@@ -146,15 +160,29 @@
 
             <EditText
                 android:id="@+id/packets_qty"
-                android:layout_width="120dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
+                android:layout_marginLeft="8dp"
                 android:background="@drawable/edittext_background"
                 android:hint="Quantity"
                 android:inputType="numberDecimal"
                 android:padding="10dp"
                 android:textSize="13sp"
-                app:layout_constraintLeft_toRightOf="@+id/pkg_type"
+                app:layout_constraintLeft_toRightOf="@+id/guid"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pickLocation" />
+
+            <Spinner
+                android:id="@+id/pkg_type_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="8dp"
+                android:entries="@array/packages"
+                android:visibility="gone"
+                android:background="@drawable/spinner_background"
+                app:layout_constraintLeft_toRightOf="@+id/guid"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pickLocation" />
 
@@ -162,12 +190,11 @@
                 android:id="@+id/pkg_type"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginRight="8dp"
                 android:background="@drawable/spinner_background"
                 android:entries="@array/item_type"
                 app:layout_constraintBottom_toBottomOf="@+id/packets_qty"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/packets_qty"
+                app:layout_constraintRight_toLeftOf="@+id/guid"
                 app:layout_constraintTop_toTopOf="@+id/packets_qty" />
 
             <EditText
@@ -175,27 +202,48 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:layout_marginRight="4dp"
-                android:background="@drawable/edittext_background"
+                android:background="@drawable/edittext_background_left_radus"
                 android:hint="Weight"
                 android:inputType="numberDecimal"
                 android:padding="10dp"
                 android:textSize="13sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/packets_dem"
+                app:layout_constraintRight_toLeftOf="@+id/wtype"
                 app:layout_constraintTop_toBottomOf="@+id/packets_qty" />
+
+
+            <Spinner
+                android:id="@+id/wtype"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:paddingRight="28dp"
+                android:background="@drawable/spinner_r_radus_background"
+                android:entries="@array/w_type"
+                app:layout_constraintRight_toLeftOf="@+id/guid"
+                app:layout_constraintLeft_toRightOf="@+id/packets_weight"
+                app:layout_constraintTop_toTopOf="@+id/packets_weight"
+                app:layout_constraintBottom_toBottomOf="@+id/packets_weight"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="150dp"/>
+
+
 
             <EditText
                 android:id="@+id/packets_dem"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="18dp"
                 android:background="@drawable/edittext_background"
                 android:hint="Dimension"
                 android:padding="10dp"
                 android:textSize="13sp"
-                app:layout_constraintLeft_toRightOf="@+id/packets_weight"
+                app:layout_constraintLeft_toRightOf="@+id/wtype"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/packets_qty" />
 
@@ -211,9 +259,24 @@
                 android:text="Pic Date"
                 android:textColor="@color/black"
                 app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/guid"
+                app:layout_constraintTop_toBottomOf="@+id/packets_dem"
+                />
+
+            <EditText
+                android:id="@+id/cost"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/edittext_background"
+                android:padding="10dp"
+                android:textSize="13sp"
+                android:hint="Cost"
+                android:textColor="@color/black"
+                app:layout_constraintLeft_toRightOf="@+id/guid"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/packets_dem"
-
                 />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -244,7 +307,7 @@
                     android:id="@+id/courier"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Throw Courier"
+                    android:text="Via Courier"
                     android:checked="true"
                     android:tag="serviceType"
                     android:textSize="12sp"
@@ -256,7 +319,7 @@
                     android:id="@+id/ltl"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Throw LtL"
+                    android:text="Via  LtL Freight"
                     android:textSize="12sp"
                     android:tag="serviceType"
                     app:layout_constraintLeft_toLeftOf="parent"

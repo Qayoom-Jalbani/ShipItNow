@@ -16,7 +16,7 @@ public class ViewModels extends ViewModel {
 
 
     public ViewModels() {
-        repositories = Repositories.getRepository();
+        repositories = new Repositories();
         Massage = repositories.getMassage();
         Loading = repositories.getLoading();
     }

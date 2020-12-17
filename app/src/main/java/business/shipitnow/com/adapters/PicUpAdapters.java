@@ -2,7 +2,9 @@ package business.shipitnow.com.adapters;
 
 
 import android.content.Context;
+import android.location.Address;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +14,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.navigation.NavHost;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,22 +21,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 import business.shipitnow.com.R;
+import business.shipitnow.com.coman.MyLib;
 import business.shipitnow.com.module.AddPakage;
 
 
-import static business.shipitnow.com.ui.courier.tab.api_services.mypackage.tab_my_package.Glist;
-
 public class PicUpAdapters extends RecyclerView.Adapter<PicUpAdapters.ViewHolder> {
 
-    private List<AddPakage> list = new ArrayList<>();
+    public List<AddPakage> list = new ArrayList<>();
     private Context context;
+
+    public static PicUpAdapters Adapter;
 
     public PicUpAdapters(Context context) {
         this.context = context;
     }
+    public static PicUpAdapters getInstance(Context context){
+        if (Adapter == null){
+            Adapter = new PicUpAdapters(context);
+        }
+        return Adapter;
+    }
 
     public void setList(List<AddPakage> list) {
-        this.list = Glist;
+        this.list.clear();
+        this.list.addAll(list);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -46,6 +56,17 @@ public class PicUpAdapters extends RecyclerView.Adapter<PicUpAdapters.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.Name.setText(list.get(position).getPackageName());
+        holder.Description.setText(list.get(position).getDescription());
+        holder.From.setText(list.get(position).getPickUpLocation());
+        holder.To.setText(list.get(position).getDropOffLocation());
+
+        String Date = list.get(position).getPickUpDate();
+        Date = Date.substring(0,10);
+
+        Date = MyLib.convertDate(Date,"yyyy-MM-dd");
+        String pDate ="Drop-off Date : <b>"+Date+"</b>";
+        holder.picDate.setText(Html.fromHtml(pDate));
 
     }
 
@@ -60,11 +81,20 @@ public class PicUpAdapters extends RecyclerView.Adapter<PicUpAdapters.ViewHolder
         ImageView Detail;
         TextView getPackage;
 
+        TextView Name,picDate,Description,From,To;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            Detail = itemView.findViewById(R.id.detail);
+
+            Name = itemView.findViewById(R.id.name);
+            picDate = itemView.findViewById(R.id.date);
+            Description = itemView.findViewById(R.id.pocket_dec);
+            From = itemView.findViewById(R.id.from);
+            To = itemView.findViewById(R.id.to);
+
             Prent = itemView.findViewById(R.id.prentview);
             DetailView = itemView.findViewById(R.id.detailview);
+
             getPackage = itemView.findViewById(R.id.pick_up_package);
             getPackage.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -76,7 +106,7 @@ public class PicUpAdapters extends RecyclerView.Adapter<PicUpAdapters.ViewHolder
                     Navigation.findNavController(v).navigate(R.id.pick_to_tracking, bundle);
                 }
             });
-
+            Detail = itemView.findViewById(R.id.detail);
             Detail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

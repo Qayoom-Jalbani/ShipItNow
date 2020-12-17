@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -53,7 +55,7 @@ public class tab_add_package extends Fragment {
 
     private int pay = 0;
     private int service = 0;
-    private Spinner type;
+    private Spinner type,Pkg_type_id;
     private String Type;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -62,6 +64,8 @@ public class tab_add_package extends Fragment {
         View root = inflater.inflate(R.layout.fragment_tab_add, container, false);
         viewModels = new ViewModelProvider(this).get(ViewModels.class);
 
+        ((AppCompatActivity) requireActivity()).getSupportActionBar().setTitle("Add Package");
+        //viewModels.getLoading().removeObservers(getViewLifecycleOwner());
         viewModels.getLoading().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
@@ -89,6 +93,36 @@ public class tab_add_package extends Fragment {
         Weight = root.findViewById(R.id.packets_weight);
         Dimesion = root.findViewById(R.id.packets_dem);
         type = root.findViewById(R.id.pkg_type);
+        Pkg_type_id = root.findViewById(R.id.pkg_type_id);
+        type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+              switch (position){
+                  case 0:
+                      QTY.setVisibility(View.VISIBLE);
+                      Pkg_type_id.setVisibility(View.GONE);
+                      break;
+                  case 1:
+                      QTY.setVisibility(View.VISIBLE);
+                      Pkg_type_id.setVisibility(View.GONE);
+                      break;
+                  case 2:
+                      QTY.setVisibility(View.INVISIBLE);
+                      Pkg_type_id.setVisibility(View.VISIBLE);
+                      break;
+                  case 3:
+                      QTY.setVisibility(View.INVISIBLE);
+                      Pkg_type_id.setVisibility(View.VISIBLE);
+                      break;
+
+              }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         BoxName = root.findViewById(R.id.pickName);
         BoxDescription = root.findViewById(R.id.pickDesc);

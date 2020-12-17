@@ -19,12 +19,6 @@ public class Repositories {
     private MutableLiveData<Boolean> Loading = new MutableLiveData<>();
     private MutableLiveData<List<AddPakage>> List = new MutableLiveData<>();
 
-    public static Repositories getRepository() {
-        if (repository == null) {
-            repository = new Repositories();
-        }
-        return repository;
-    }
 
     public MutableLiveData<Boolean> getLoading() {
         return Loading;

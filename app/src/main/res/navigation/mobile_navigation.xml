@@ -26,6 +26,6 @@
     <fragment
         android:id="@+id/nav_tracking"
         android:name="business.shipitnow.com.ui.tracking.Tracking_Fragment"
-        android:label="Order Tracking"
-        tools:layout="@layout/fragment_tab_tracking" />
+        android:label="GPS Tracking"
+        tools:layout="@layout/fragment_tracking" />
 </navigation>

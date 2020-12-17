@@ -6,12 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import business.shipitnow.com.R;
@@ -29,16 +31,16 @@ public class tab_picup_schedule extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.frament_tab_pickup, container, false);
-
+        ((AppCompatActivity) requireActivity()).getSupportActionBar().setTitle("Pick-Up Packages");
         viewModels = new ViewModelProvider(this).get(ViewModels.class);
 
 
         viewModels.getLoading().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                if (aBoolean){
+                if (aBoolean) {
                     Loading.ShowLoading(requireActivity());
-                }else {
+                } else {
                     Loading.CloseLoading();
                 }
             }
@@ -47,7 +49,13 @@ public class tab_picup_schedule extends Fragment {
             @Override
             public void onChanged(List<AddPakage> addPakages) {
                 if (addPakages.size() > 0) {
-                    Adapter.setList(addPakages);
+                    List<AddPakage> list = new ArrayList<>();
+                    for (AddPakage item : addPakages) {
+                        if (item.getInProcess().equals("true") && item.getIsDelivered().equals("false")) {
+                            list.add(item);
+                        }
+                    }
+                    Adapter.setList(list);
                 }
             }
         });
@@ -55,8 +63,11 @@ public class tab_picup_schedule extends Fragment {
         recyclerView = root.findViewById(R.id.schedule_list);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext());
         recyclerView.setLayoutManager(layoutManager);
-        Adapter = new PicUpAdapters(requireContext());
+        Adapter = PicUpAdapters.getInstance(requireContext());
         recyclerView.setAdapter(Adapter);
+
+        if (Adapter.list.size() <= 0)
+            viewModels.getMyPackage();
 
         return root;
     }

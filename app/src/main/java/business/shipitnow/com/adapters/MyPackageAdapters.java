@@ -22,18 +22,27 @@ import java.util.List;
 import javax.net.ssl.SSLEngineResult;
 
 import business.shipitnow.com.R;
+import business.shipitnow.com.coman.MyLib;
 import business.shipitnow.com.module.AddPakage;
 import business.shipitnow.com.module.Pocket;
 
 public class MyPackageAdapters extends RecyclerView.Adapter<MyPackageAdapters.ViewHolder> implements Filterable {
 
-    private List<AddPakage> list = new ArrayList<>();
+    public List<AddPakage> list = new ArrayList<>();
     private List<AddPakage> FullList = new ArrayList<>();
     private Context context;
 
     public MyPackageAdapters(Context context) {
         this.context = context;
     }
+    public static MyPackageAdapters Adapter;
+    public static MyPackageAdapters getInstance(Context context){
+        if (Adapter ==null){
+            Adapter = new MyPackageAdapters(context);
+        }
+        return Adapter;
+    }
+
 
     public void setList(List<AddPakage> list) {
         this.list.clear();
@@ -52,23 +61,40 @@ public class MyPackageAdapters extends RecyclerView.Adapter<MyPackageAdapters.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         if (list.size() > 0) {
-            if (list.get(position).getInProcess().equals("false")) {
-                holder.Status.setText("Package Order in a Queue");
+
+            AddPakage item = list.get(position);
+            if (item.getInProcess().equals("false")) {
+                holder.Status.setText("Package Order in a Queue to process");
                 holder.Description.setText("Package Order In a Queue When Order Get into Processing you wil get Order Process notification");
                 holder.DeliverDate.setVisibility(View.GONE);
-            } else if (list.get(position).getInProcess().equals("true") && list.get(position).getIsDelivered().equals("false")) {
-                holder.Status.setText("Package Order in a Process");
+            } else if (item.getInProcess().equals("true") && item.getIsDelivered().equals("false")) {
+                holder.Status.setText("InProcess");
                 holder.Description.setText("Package order in a processing. Rider name is johns his contact no is 3030587214 when Order Is Delivered you will get order Delivered Notification");
                 holder.DeliverDate.setVisibility(View.VISIBLE);
-            } else if (list.get(position).getIsDelivered().equals("true")) {
-                holder.Status.setText("Package Order is Delivered...");
+            } else if (item.getIsDelivered().equals("true")) {
+                holder.Status.setText("Delivered");
                 holder.Description.setText("Package order is Delivered on your Desire Destination  ");
                 holder.DeliverDate.setVisibility(View.VISIBLE);
             }
-            holder.Name.setText(list.get(position).getPackageName());
-            String date = "<u>Drop-Up Date</u> : <b>" + list.get(position).getPackageID() + "</b>";
-            holder.DeliverDate.setText(Html.fromHtml(date));
-            holder.OrderNo.setText("Order Tracking Id " + list.get(position).getPackageID());
+            holder.Name.setText(item.getPackageName());
+            holder.OrderNo.setText("Order No " + item.getPackageID());
+            if (item.getInProcess().equals("true") && item.getIsDelivered().equals("false")) {
+                String Date = item.getPickUpDate();
+                Date = Date.substring(0, 10);
+                Date = MyLib.convertDate(Date, "yyyy-MM-dd");
+                String pDate = "Drop-off Date : <b>" + Date + "</b>";
+                holder.DeliverDate.setText(Html.fromHtml(pDate));
+                holder.DeliverDate.setVisibility(View.VISIBLE);
+            }else if (item.getInProcess().equals("true") && item.getIsDelivered().equals("true")) {
+                String Date = item.getDropOffDate();
+                Date = Date.substring(0, 10);
+                Date = MyLib.convertDate(Date, "yyyy-MM-dd");
+                String pDate = "Delivered Date : <b>" + Date + "</b>";
+                holder.DeliverDate.setText(Html.fromHtml(pDate));
+                holder.DeliverDate.setVisibility(View.VISIBLE);
+            }else  {
+                holder.DeliverDate.setVisibility(View.INVISIBLE);
+            }
         }
     }
 
@@ -136,10 +162,10 @@ public class MyPackageAdapters extends RecyclerView.Adapter<MyPackageAdapters.Vi
                 filteredList.addAll(FullList);
             } else {
                 for (AddPakage item : FullList) {
-                    Log.e("ITM","Item = "+item.toString());
+                    Log.e("ITM", "Item = " + item.toString());
                     if (type.equals("deliverd") && item.getIsDelivered().equals("true")) {
                         filteredList.add(item);
-                    }else if (type.equals("inProcess") && item.getInProcess().equals("true") && item.getIsDelivered().equals("false") ) {
+                    } else if (type.equals("inProcess") && item.getInProcess().equals("true") && item.getIsDelivered().equals("false")) {
                         filteredList.add(item);
                     }
                 }

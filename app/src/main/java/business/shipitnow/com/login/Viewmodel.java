@@ -12,7 +12,7 @@ public class Viewmodel extends ViewModel {
 
     public Viewmodel() {
 
-        repository = Repository.getRepository();
+        repository = new Repository();
 
         LoginState = repository.getLoginState();
         Loading = repository.getLoading();

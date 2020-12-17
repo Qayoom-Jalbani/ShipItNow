@@ -100,7 +100,7 @@
         android:layout_height="wrap_content"
         android:padding="14dp"
         android:animateLayoutChanges="true"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@+id/icon">
 
         <TextView
@@ -182,8 +182,8 @@
             android:id="@+id/pick_up_package"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Track Order"
+            android:layout_marginTop="14dp"
+            android:text="GPS Tracking"
             android:drawableRight="@drawable/pin_location"
             android:drawablePadding="8dp"
             android:textSize="18dp"

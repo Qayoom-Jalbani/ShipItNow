@@ -7,11 +7,8 @@
         <item
             android:id="@+id/nav_courier"
             android:icon="@raw/logo_material"
-            android:title="Courier Service" />
-        <item
-            android:id="@+id/nav_freight"
-            android:icon="@raw/ic_ltl"
-            android:title="LTL Freight" />
+            android:checkable="true"
+            android:title="Home" />
 
         <item
             android:id="@+id/nav_print"
@@ -19,9 +16,15 @@
             android:title="Print On Demand" />
 
         <item
+            android:id="@+id/nav_mailbox"
+            android:icon="@drawable/ic_email"
+            android:title="Rental Mail Box" />
+
+        <item
             android:id="@+id/nav_tracking"
             android:icon="@drawable/pin_location"
-            android:title="Order Tracking " />
+            android:title="GPS Tracking " />
+
         <item
             android:id="@+id/nav_Logout"
             android:icon="@raw/logout"
@@ -29,7 +32,7 @@
 
     </group>
 
-    <item android:title="">
+   <!-- <item android:title="">
         <menu>
             <item
                 android:icon="@drawable/ic_info"
@@ -45,5 +48,5 @@
         </menu>
 
 
-    </item>
+    </item>-->
 </menu>

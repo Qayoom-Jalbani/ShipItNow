@@ -13,14 +13,6 @@ import retrofit2.Response;
 
 public class Repository {
 
-    public static Repository repository;
-    public static Repository getRepository(){
-        if (repository == null){
-            repository = new Repository();
-        }
-        return repository;
-    }
-
     private MutableLiveData<String> LoginState = new MutableLiveData<>();
     private MutableLiveData<Boolean> Loading = new MutableLiveData<>();
     private MutableLiveData<String> Error = new MutableLiveData<>();

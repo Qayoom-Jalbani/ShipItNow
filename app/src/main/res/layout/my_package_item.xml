@@ -110,6 +110,7 @@
             android:layout_height="wrap_content"
             android:text="Your Package In Shipping Process You can Track your order by using tracking ID"
             android:textAlignment="center"
+            android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

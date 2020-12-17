@@ -30,15 +30,28 @@
 
 
     <string-array name="item_type">
-        <item>Select Item Type</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
+        <item>Package Type</item>
+        <item>Package</item>
+        <item>Print On Demand</item>
+        <item>Rental Mail Box </item>
     </string-array>
+
+    <string-array name="w_type">
+        <item>mg</item>
+        <item>kg</item>
+        <item>t</item>
+        <item>mt</item>
+        <item>gt</item>
+    </string-array>
+
+    <string-array name="packages">
+        <item>Package 1</item>
+        <item>Package 2</item>
+        <item>Package 3</item>
+        <item>Package 4</item>
+        <item>Package 5</item>
+    </string-array>
+
 
     <array name="print_type">
         <item>Select Print Type</item>
